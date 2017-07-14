@@ -6,6 +6,10 @@ A nice and strong uncaught exception handler library, supports showing logs both
 
 ![screenshot.png](art/s2.png)
 
+# Deprecated
+
+This project has been deprecated, because [Fabric SDK](https://fabric.io) can better solve our problems, please use Fabric Crashlytics instead.
+
 ## Getting started
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/me.drakeet.library/crashwoodpecker/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/me.drakeet.library/crashwoodpecker)
