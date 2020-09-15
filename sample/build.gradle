@@ -2,15 +2,15 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "me.drakeet.demo"
-        minSdkVersion 14
-        targetSdkVersion 24
-        versionCode 211
-        versionName "2.1.1"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 300
+        versionName "3.0.0"
     }
 
     buildTypes {
@@ -26,9 +26,10 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile project(':crashwoodpecker')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.appcompat:appcompat:1.2.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation project(':crashwoodpecker')
+
+    testImplementation 'junit:junit:4.12'
 }

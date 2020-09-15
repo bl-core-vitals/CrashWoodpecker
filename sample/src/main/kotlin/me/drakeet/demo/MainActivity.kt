@@ -27,10 +27,11 @@ package me.drakeet.demo
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Switch
+import androidx.appcompat.app.AppCompatActivity
 import me.drakeet.library.CrashWoodpecker
 import me.drakeet.library.PatchMode
 import java.io.IOException
@@ -40,7 +41,9 @@ import java.io.IOException
  */
 class MainActivity : AppCompatActivity() {
 
-    val KEY_IS_DIALOG_MODE = "key_is_log_mode";
+    companion object {
+        private const val KEY_IS_DIALOG_MODE = "key_is_log_mode";
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,15 +53,15 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        findViewById(R.id.button_crash_1)!!.setOnClickListener { view ->
+        findViewById<View>(R.id.button_crash_1).setOnClickListener {
             throw IOException("=.=")
         }
 
-        findViewById(R.id.button_crash_2)!!.setOnClickListener { view ->
-            Thread({ throw Exception("from a thread ~.~") }).start()
+        findViewById<View>(R.id.button_crash_2).setOnClickListener {
+            Thread { throw Exception("from a thread ~.~") }.start()
         }
 
-        val patchModeSwitch = findViewById(R.id.patch_mode) as Switch
+        val patchModeSwitch = findViewById<Switch>(R.id.patch_mode)
         switchPatchMode(patchModeSwitch, isDialogMode);
         patchModeSwitch.setOnCheckedChangeListener { compoundButton, isChecked ->
             switchPatchMode(patchModeSwitch, isChecked)

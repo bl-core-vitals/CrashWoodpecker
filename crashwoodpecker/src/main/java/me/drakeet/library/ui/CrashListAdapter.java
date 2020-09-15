@@ -26,13 +26,15 @@
 package me.drakeet.library.ui;
 
 import android.graphics.Typeface;
-import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 import me.drakeet.library.R;
 import me.drakeet.library.Space;
 import me.drakeet.library.StringStyleUtils;
@@ -56,14 +58,16 @@ class CrashListAdapter extends RecyclerView.Adapter<CrashListAdapter.ViewHolder>
     }
 
 
-    @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
         View v = LayoutInflater.from(parent.getContext())
-            .inflate(R.layout.cw_item_trace, parent, false);
+                .inflate(R.layout.cw_item_trace, parent, false);
         return new ViewHolder(v);
     }
 
 
-    @Override public void onBindViewHolder(final ViewHolder holder, final int _position) {
+    @Override
+    public void onBindViewHolder(final ViewHolder holder, final int _position) {
         int position = holder.getAdapterPosition();
         String trace = traces[position];
         holder.log = trace;
@@ -89,9 +93,9 @@ class CrashListAdapter extends RecyclerView.Adapter<CrashListAdapter.ViewHolder>
                     if (indexOfC >= 0) {
                         String atPackage = trace.substring(0, indexOfC);
                         SpannableStringBuilder builder = new SpannableStringBuilder(
-                            atPackage).append(
-                            StringStyleUtils.format(holder.title.getContext(),
-                                " " + trace.substring(indexOfC), R.style.CWLineTextAppearance));
+                                atPackage).append(
+                                StringStyleUtils.format(holder.title.getContext(),
+                                        " " + trace.substring(indexOfC), R.style.CWLineTextAppearance));
                         CharSequence title = builder.subSequence(0, builder.length());
                         holder.title.setText(title);
                     } else {
@@ -116,12 +120,14 @@ class CrashListAdapter extends RecyclerView.Adapter<CrashListAdapter.ViewHolder>
     }
 
 
-    @Override public void onViewRecycled(ViewHolder holder) {
+    @Override
+    public void onViewRecycled(ViewHolder holder) {
         super.onViewRecycled(holder);
     }
 
 
-    @Override public int getItemCount() {
+    @Override
+    public int getItemCount() {
         return traces == null ? 0 : traces.length;
     }
 
@@ -149,10 +155,11 @@ class CrashListAdapter extends RecyclerView.Adapter<CrashListAdapter.ViewHolder>
         }
 
 
-        @Override public void onClick(View v) {
+        @Override
+        public void onClick(View v) {
             if (log.endsWith("more")) {
                 Toast.makeText(v.getContext(), "It is not supported temporarily.",
-                    Toast.LENGTH_SHORT).show();
+                        Toast.LENGTH_SHORT).show();
             }
         }
     }

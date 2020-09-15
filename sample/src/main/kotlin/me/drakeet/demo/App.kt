@@ -35,8 +35,6 @@ import me.drakeet.library.PatchMode
  */
 class App : Application() {
 
-    public var patchMode = PatchMode.SHOW_LOG_PAGE
-
     override fun onCreate() {
         super.onCreate()
         val patchMode = if (BuildConfig.DEBUG) {
